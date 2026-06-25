@@ -1,0 +1,78 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit(./src/**)",
+      "Edit(./tests/**)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git diff --check)",
+      "Bash(npm test *)",
+      "Bash(npm run test *)",
+      "Bash(npm run lint *)",
+      "Bash(npm run typecheck *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pytest *)",
+      "Bash(ruff check *)",
+      "Bash(mypy *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Edit(./.github/**)",
+      "Edit(./package.json)",
+      "Edit(./package-lock.json)",
+      "Edit(./pnpm-lock.yaml)",
+      "Edit(./yarn.lock)",
+      "Edit(./uv.lock)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git add *)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(npm install *)",
+      "Bash(npm i *)",
+      "Bash(pnpm add *)",
+      "Bash(yarn add *)",
+      "Bash(pip install *)",
+      "WebFetch"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh",
+        "~/.aws",
+        "~/.config/gh"
+      ]
+    },
+    "credentials": {
+      "files": [
+        { "path": "~/.ssh", "mode": "deny" },
+        { "path": "~/.aws", "mode": "deny" },
+        { "path": "~/.config/gh", "mode": "deny" }
+      ],
+      "envVars": [
+        { "name": "GITHUB_TOKEN", "mode": "deny" },
+        { "name": "NPM_TOKEN", "mode": "deny" },
+        { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
+        { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
+        { "name": "OPENAI_API_KEY", "mode": "deny" },
+        { "name": "ANTHROPIC_API_KEY", "mode": "deny" }
+      ]
+    },
+    "network": {
+      "deniedDomains": ["*"]
+    }
+  }
+}

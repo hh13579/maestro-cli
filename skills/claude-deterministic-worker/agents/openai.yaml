@@ -1,0 +1,6 @@
+interface:
+  display_name: "Claude Deterministic Worker"
+  short_description: "Codex-controlled delegation to Claude Code CLI for bounded deterministic implementation tasks."
+  default_prompt: "$claude-deterministic-worker\nCodex should define the plan, write a bounded task contract, delegate implementation to Claude Code CLI, then review the diff and verify the result."
+policy:
+  allow_implicit_invocation: false

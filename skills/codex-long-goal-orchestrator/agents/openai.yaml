@@ -1,0 +1,6 @@
+interface:
+  display_name: "Codex Long Goal Orchestrator"
+  short_description: "Stage-based Codex-first orchestration for long-running engineering goals."
+  default_prompt: "$codex-long-goal-orchestrator\nCodex should decompose this long-running engineering goal into stages, maintain a roadmap, delegate bounded implementation tasks to claude-deterministic-worker, and verify each stage before proceeding."
+policy:
+  allow_implicit_invocation: false

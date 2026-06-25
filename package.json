@@ -1,0 +1,20 @@
+{
+  "name": "codex-claude-orchestrator-skills",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Codex-first orchestration skills with Claude Code constrained to deterministic worker tasks.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "bash scripts/validate-skill-layout.sh",
+    "validate": "bash scripts/validate-skill-layout.sh"
+  },
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "claude-code",
+    "multi-agent",
+    "orchestration",
+    "sdd"
+  ]
+}

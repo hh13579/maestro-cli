@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "summary",
+    "files_changed",
+    "commands_run",
+    "assumptions",
+    "risks",
+    "questions_for_codex",
+    "stop_reason"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["completed", "blocked", "failed"]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "files_changed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "change_type", "reason"],
+        "properties": {
+          "path": { "type": "string" },
+          "change_type": {
+            "type": "string",
+            "enum": ["added", "modified", "deleted"]
+          },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "commands_run": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["command", "result", "evidence"],
+        "properties": {
+          "command": { "type": "string" },
+          "result": {
+            "type": "string",
+            "enum": ["passed", "failed", "skipped"]
+          },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "questions_for_codex": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "stop_reason": {
+      "type": "string"
+    }
+  }
+}
